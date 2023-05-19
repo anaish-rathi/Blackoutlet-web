@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <!-- Meta tags and title -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Untitled</title>
+    
+      <!-- CSS libraries -->
+      <!-- CSS links omitted for brevity -->
+    
+      <!-- JavaScript code -->
+      <script>
+        // Function to perform the search
+        function performSearch() {
+          // Get the search query from the input field
+          var query = document.getElementById("search-input").value;
+    
+          // Get all the elements you want to search within
+          var elements = document.getElementsByClassName("searchable");
+    
+          // Loop through each element and check if it contains the search query
+          for (var i = 0; i < elements.length; i++) {
+            var element = elements[i];
+            var content = element.innerText.toLowerCase();
+    
+            // If the element's content matches the search query, display it
+            if (content.includes(query.toLowerCase())) {
+              element.style.display = "block";
+            } else {
+              element.style.display = "none";
+            }
+          }
+        }
+    
+        // Add an event listener to the search input field
+        document.getElementById("search-input").addEventListener("keyup", function(event) {
+          // Check if the Enter key is pressed (key code 13)
+          if (event.keyCode === 13) {
+            event.preventDefault();
+            performSearch();
+          }
+        });
+      </script>
+    </head>
+    <body>
+      <!-- Navbar section -->
+      <div class="header-blue">
+        <nav class="navbar navbar-dark navbar-expand-md navigation-clean-search">
+          <!-- Navbar content -->
+          <form class="form-inline d-inline-flex justify-content-center">
+            <div class="form-group">
+              <input id="search-input" class="form-control search-field" type="search" placeholder="Search">
+            </div>
+            <button class="btn btn-primary search-button" type="button" onclick="performSearch()">Search</button>
+          </form>
+        </nav>
+        <div class="container hero">
+          <!-- Hero section -->
+        </div>
+      </div>
+    
+      <!-- Rest of your HTML code... -->
+    
+      <!-- Example content to search within -->
+      <div class="searchable">This is the first searchable element.</div>
+      <div class="searchable">This is the second searchable element.</div>
+      <div class="searchable">This is the third searchable element.</div>
+    </body>
+    </html>
+    
+   
+   
+    <!-- <script>
+        const search = ()=>{
+          let filter= document.getElementById('search-field').value.toUpperCase();
+          let ul = document.getElementById('feature');
+          let li = ul.getElementsByTagName('li'); 
+      for(var i=0; i<li.length; i++)
+      {
+      let a= li[i].getElementsByTagName('a')[0];
+      let textValue = a.textContent || a.innerHTML;
+      if(textValue.toUpperCase().indexOf(filter) > -1)
+      {
+        li[i].style.display = '';
+      
+      }
+      else{
+        li[i].style.display = 'none';
+      }
+      }
+        }
+      </script> -->
+</body>
+</html>
